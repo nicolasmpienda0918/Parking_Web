@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -25,8 +27,7 @@ miFormulario: FormGroup = this.fb.group({
 
   
 
-  login() {
-    console.log(this.miFormulario.value);
+  login() {    
     const { email, password } = this.miFormulario.value;
  
     this.authService.login( email, password)
@@ -37,7 +38,7 @@ miFormulario: FormGroup = this.fb.group({
 
       }
       else{
-        //Mensaje de Error
+        Swal.fire('Error', ok, 'error')
       }
     });
 
