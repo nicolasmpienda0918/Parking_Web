@@ -1,13 +1,76 @@
-<h1>
+<<mat-sidenav-container fullscreen>
 
-    Dashboard</h1>
-<hr>
+    <mat-sidenav #sidenav model="push">
 
-<p> Esta Pagina Solo funicona si estas autenticado</p>
+        <mat-toolbar>
+            <span>Menu</span>
+            <span class="spacer "></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>menu</mat-icon>
+             </button>
+        </mat-toolbar>
 
-<h4> User info</h4>
-<pre>{{ usuario | json}}</pre>
+        <mat-nav-list>
+            <a routerLink="./user" mat-list-item>
+                <mat-icon mat-list-icon>account_circle</mat-icon>
+                <span>Clientes</span>
+            </a>
+        </mat-nav-list>
 
-<button (click)="logouth()">
-    
-    Logouth</button>
+        <mat-nav-list>
+            <a routerLink="./adds" mat-list-item>
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Agregar Cliente</span>
+            </a>
+        </mat-nav-list>
+        <mat-nav-list>
+            <a routerLink="./search" mat-list-item>
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a routerLink="./cells" mat-list-item>
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Celdas</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a routerLink="#" mat-list-item>
+                <mat-icon mat-list-icon>article</mat-icon>
+                <span>Reportes</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a routerLink="#" mat-list-item (click)="logouth()">
+                <mat-icon mat-list-icon>logouth</mat-icon>
+                <span>Salir</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+             <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="spacer "></span>
+
+        <button mat-button (click)="logouth()">   
+            <mat-icon>logouth</mat-icon>        
+            Salir
+       </button>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+
+
+    </div>
+
+
+    </mat-sidenav-container>
